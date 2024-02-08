@@ -1,14 +1,8 @@
 export class Task{
-    constructor(task_description){
-        if(task_description){
-            this.task_description = task_description;
-        }
-        else{
-            task_description = 'Default task text';
-        }
+    constructor(){
         this.container = null;
         this.counter = 0;
-        
+        this.date = null;
     }
 
     createInput(){
@@ -22,11 +16,6 @@ export class Task{
         task_input.setAttribute("type", "text");
         task_input.placeholder = 'Kreiraj novi task';
         this.container.appendChild(task_input);
-
-        const tasks = document.createElement('p');
-        tasks.className = 'tasks';
-        tasks.innerHTML = `Broj taskova: ${this.counter}`;
-        this.container.appendChild(tasks);
 
         const btn = document.createElement('button');
         btn.textContent = 'Create';
@@ -42,6 +31,11 @@ export class Task{
             }
         });
         this.container.appendChild(btn);
+
+        const tasks = document.createElement('p');
+        tasks.className = 'tasks';
+        tasks.innerHTML = `Broj taskova: ${this.counter}`;
+        document.querySelector(".kontejner").appendChild(tasks)
 
     }
     newTask(txt){
