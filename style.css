@@ -45,3 +45,6 @@ input.color{
   width: 30px;
   margin: .5rem;
 }
+.checkbox{
+  margin-left: .5em !important;
+}

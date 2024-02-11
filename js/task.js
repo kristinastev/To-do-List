@@ -18,7 +18,7 @@ export class Task{
         this.container.appendChild(task_input);
 
         const btn = document.createElement('button');
-        btn.textContent = 'Create';
+        btn.textContent = 'Kreiraj';
         btn.addEventListener('click', () => {
             const taskText = task_input.value.trim();
             if (taskText !== '') {
@@ -60,7 +60,7 @@ export class Task{
         });
 
         const dlt = document.createElement('button');
-        dlt.textContent = 'Delete';
+        dlt.textContent = 'Obriši';
         dlt.className = 'kanta';
         dlt.addEventListener('click', () => {
             this.counter--;
@@ -69,5 +69,17 @@ export class Task{
             options.remove();
         });
         options.appendChild(dlt);
+
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.className = 'checkbox';
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                task.style.textDecoration = 'line-through';
+            } else {
+                task.style.textDecoration = 'none';
+            }
+        });
+        options.appendChild(checkbox);
     }
 }
